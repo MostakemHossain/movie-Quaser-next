@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
 import SearchBox from "@/components/SearchBox";
 import { Inter } from "next/font/google";
+import { Suspense } from "react";
 import Providers from "./Providers";
 import "./globals.css";
 
@@ -16,12 +17,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>
+       <Suspense>
+       <Providers>
         <Header/>
         <Navbar/>
         <SearchBox/>
         {children}
         </Providers>
+       </Suspense>
         </body>
     </html>
   );
